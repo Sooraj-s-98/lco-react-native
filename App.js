@@ -3,12 +3,12 @@ import {
   Text,
   StyleSheet,
   View,
-  TouchableOpacity,
+  Pressable,
   Image
 } from "react-native";
 
 import DiceOne from './assets/dice1.png';
-import DiceTWO from './assets/dice2.png';
+import DiceTwo from './assets/dice2.png';
 import DiceThree from './assets/dice3.png';
 import DiceFour from './assets/dice4.png';
 import DiceFive from './assets/dice5.png';
@@ -43,10 +43,9 @@ const App = () =>{
   return(
     <>
       <View style={styles.container}>
-        <Image style={styles.image} source={uri} />
-        <TouchableOpacity onPress={PlayButtonTapped}>
-          <Text style={styles.gamePlayButton}>play game</Text>
-        </TouchableOpacity>
+        <Pressable onPress={PlayButtonTapped}>
+           <Image style={styles.image} source={uri} />
+        </Pressable>
       </View>
     </>
   );
@@ -59,17 +58,6 @@ const styles=StyleSheet.create({
     alignItems: 'center',
     justifyContent : 'center',
     backgroundColor: "#222831"
-  },
-  gamePlayButton :{
-     fontSize:20,
-     marginTop:30,
-     color:"#F2A365",
-     paddingHorizontal: 40,
-     paddingVertical : 10,
-     borderColor : "#30475E",
-     borderRadius:5,
-     borderWidth: 3,
-     fontWeight: "bold"
   },
   image :{
      width:200,
