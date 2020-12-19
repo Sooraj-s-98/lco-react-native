@@ -1,39 +1,29 @@
-import React, {useState} from "react";
+import React,{useState} from "react";
 import {
   Text,
   StyleSheet,
   View,
   TouchableOpacity,
+  Image
 } from "react-native";
 
+import DiceOne from './assets/dice1.png';
+import DiceTWO from './assets/dice2.png';
+import DiceThree from './assets/dice3.png';
+import DiceFour from './assets/dice4.png';
+import DiceFive from './assets/dice5.png';
+import DiceSix from './assets/dice6.png';
 const App = () =>{
+  const [uri,setUri]=useState(DiceOne)
 
-  const [randomColor,setRandomColor]=useState("rgb(32,0,126)");
-  
-  const resetBG=()=>{
-    setRandomColor("rgb(0,0,0)");
-  };
-  const changeBG=()=>{
-
-    let color="rgb("+
-      Math.floor(Math.random()*256) +
-      ','+
-      Math.floor(Math.random()*256) +
-      ','+
-      Math.floor(Math.random()*256) +
-      ')';
-      setRandomColor(color);
-   };
   return(
     <>
-    <View style={[styles.container,{ backgroundColor : randomColor}]}>
-      <TouchableOpacity onPress={changeBG}>
-        <Text style={styles.text}>TAP ME</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={resetBG}>
-        <Text style={styles.reset}>Reset</Text>
-      </TouchableOpacity>
-    </View>
+      <View style={styles.container}>
+        <Image style={styles.image} source={uri} />
+        <TouchableOpacity>
+          <Text style={styles.gamePlayButton}>play game</Text>
+        </TouchableOpacity>
+      </View>
     </>
   );
 };
@@ -43,23 +33,22 @@ const styles=StyleSheet.create({
   container :{
     flex : 1,
     alignItems: 'center',
-    justifyContent : 'space-evenly',
+    justifyContent : 'center',
+    backgroundColor: "#222831"
   },
-  text :{
-    fontSize :30,
-    backgroundColor: "#BB2CD9",
-    paddingHorizontal:40,
-    color: "#FFFFFF",
-    borderRadius : 15,
-    textTransform : "uppercase"
+  gamePlayButton :{
+     fontSize:20,
+     marginTop:30,
+     color:"#F2A365",
+     paddingHorizontal: 40,
+     paddingVertical : 10,
+     borderColor : "#30475E",
+     borderRadius:5,
+     borderWidth: 3,
+     fontWeight: "bold"
   },
-  reset :{
-    fontSize :20,
-    backgroundColor: "#FFFFFF",
-    paddingVertical:2,
-    paddingHorizontal:10,
-    color: "#000000",
-    borderRadius : 10,
-    textTransform : "uppercase"
+  image :{
+     width:200,
+     height:200,
   }
 })
