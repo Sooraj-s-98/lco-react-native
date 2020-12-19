@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   Text,
   StyleSheet,
@@ -8,10 +8,24 @@ import {
 
 const App = () =>{
 
+  const [randomColor,setRandomColor]=useState("rgb(32,0,126)");
+  
+  const changeBG=()=>{
+    let color="rgb("+
+      Math.floor(Math.random()*256) +
+      ','+
+      Math.floor(Math.random()*256) +
+      ','+
+      Math.floor(Math.random()*256) +
+      ')';
+      setRandomColor(color);
+  }
   return(
     <>
-    <View style={[styles.container,{ backgroundColor :"rgb(32,0,126)"}]}>
-    <Text style={styles.text}>SOORAJ S</Text>
+    <View style={[styles.container,{ backgroundColor : randomColor}]}>
+      <TouchableOpacity onPress={changeBG}>
+        <Text style={styles.text}>TAP ME</Text>
+      </TouchableOpacity>
     </View>
     </>
   );
