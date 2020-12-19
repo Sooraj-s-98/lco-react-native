@@ -11,7 +11,7 @@ const App = () =>{
   return(
     <>
     <View style={[styles.container,{ backgroundColor :"rgb(32,0,126)"}]}>
-    <Text>SOORAJ S</Text>
+    <Text style={styles.text}>SOORAJ S</Text>
     </View>
     </>
   );
@@ -24,4 +24,12 @@ const styles=StyleSheet.create({
     alignItems: 'center',
     justifyContent : 'center',
   },
+  text :{
+    fontSize :30,
+    backgroundColor: "#BB2CD9",
+    paddingHorizontal:40,
+    color: "#FFFFFF",
+    borderRadius : 15,
+    textTransform : "uppercase"
+  }
 })
